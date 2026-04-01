@@ -92,10 +92,26 @@ public class ProgrammerCalc {
             default: return "Неизвестная";
         }
     }
-    
-    // Временная заглушка
-    private static void displayResult(long n1, String op, long n2, long res) {}
-    
-    // Заглушки, чтобы код компилировался
-    private static void showHistory() {}
+
+    private static void displayResult(long num1, String op, long num2, long result) {
+        System.out.println("\n=== РЕЗУЛЬТАТ ===");
+        System.out.println("HEX: " + Long.toHexString(result).toUpperCase());
+        System.out.println("DEC: " + result);
+        System.out.println("OCT: " + Long.toOctalString(result));
+        System.out.println("BIN: " + Long.toBinaryString(result));
+        System.out.println("================");
+
+        String entry = String.format("[%s] %s %s %s = %s", 
+                getRadixName(currentRadix), 
+                Long.toString(num1, currentRadix), op, 
+                Long.toString(num2, currentRadix), 
+                Long.toString(result, currentRadix));
+        history.add(entry);
+    }
+
+    private static void showHistory() {
+        System.out.println("\n--- ИСТОРИЯ ОПЕРАЦИЙ ---");
+        if (history.isEmpty()) System.out.println("Пусто");
+        else history.forEach(System.out::println);
+    }
 }
