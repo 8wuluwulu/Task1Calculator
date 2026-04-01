@@ -44,4 +44,21 @@ public class ProgrammerCalc {
             default: return 0;
         }
     }
+
+    private static void selectRadix() {
+        System.out.println("1. BIN, 2. OCT, 3. DEC, 4. HEX");
+        String choice = scanner.nextLine();
+        switch (choice) {
+            case "1": currentRadix = 2; break;
+            case "2": currentRadix = 8; break;
+            case "4": currentRadix = 16; break;
+            default: currentRadix = 10;
+        }
+    }
+
+    private static String getRadixName(int radix) {
+        if (radix == 2) return "Двоичная";
+        if (radix == 16) return "Шестнадцатеричная";
+        return "Десятичная";
+    }
 }
