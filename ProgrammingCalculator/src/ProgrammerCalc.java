@@ -63,12 +63,39 @@ public class ProgrammerCalc {
             System.out.println("Ошибка: " + e.getMessage());
         }
     }
+
+    private static void selectRadix() {
+        System.out.println("Выберите систему счисления:");
+        System.out.println("1. Двоичная (2)");
+        System.out.println("2. Восьмеричная (8)");
+        System.out.println("3. Десятичная (10)");
+        System.out.println("4. Шестнадцатеричная (16)");
+        System.out.print("Выбор: ");
+
+        String choice = scanner.nextLine();
+        switch (choice) {
+            case "1": currentRadix = 2; break;
+            case "2": currentRadix = 8; break;
+            case "3": currentRadix = 10; break;
+            case "4": currentRadix = 16; break;
+            default: System.out.println("Неверный выбор, оставляем текущую систему.");
+        }
+        System.out.println("Система переключена на : " + getRadixName(currentRadix));
+    }
+
+    private static String getRadixName(int radix) {
+        switch (radix) {
+            case 2: return "Двоичная";
+            case 8: return "Восьмеричная";
+            case 10: return "Десятичная";
+            case 16: return "Шестнадцатеричная";
+            default: return "Неизвестная";
+        }
+    }
     
     // Временная заглушка
     private static void displayResult(long n1, String op, long n2, long res) {}
     
     // Заглушки, чтобы код компилировался
-    private static void selectRadix() {}
     private static void showHistory() {}
-    private static String getRadixName(int r) { return "DEC"; }
 }
