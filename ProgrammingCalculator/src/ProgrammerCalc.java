@@ -41,8 +41,6 @@ public class ProgrammerCalc {
             case "&": return a & b;
             case "|": return a | b;
             case "^": return a ^ b;
-            case "<<": return a << b;
-            case ">>": return a >> b;
             default: throw new IllegalArgumentException("Неверная операция.");
         }
     }
